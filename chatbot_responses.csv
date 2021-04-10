@@ -1,0 +1,16 @@
+﻿Intent,Zone,Response
+Dining,Green - Yellow,Indoor dining is permitted without patron capacity limits. 
+Dining,Orange,Indoor dining is limited to 50% capacity or 100 people (whichever is less).
+Dining,Red,Indoor dining is limited to 50% capacity or 50 people (whichever is less).
+Dining,Grey,No indoor dining is allowed.
+Gatherings,Green - Orange,Public events and social gatherings must be limited to 10 people indoors and 25 people outdoors. Organized events in staffed facilities must be limited to 50 people indoors and 100 people outdoors.
+Gatherings,Red,All indoor public events and social gatherings must be limited to 5 people or less. All outdoor gatherings must be limited to 25 people or less.
+Gatherings,Grey,"No indoor public events or social gatherings, except with members of your household. Outdoor gatherings must be limited to 25 people or less."
+Entertainment,Green - Orange,Movie theatres are other performing arts facilities are limited to 50 people indoors. Amusement parks and water parks are open.
+Entertainment,Red - Grey,Movie theatres and other performing arts facilities are closed. Amusement parks and water parks are closed.
+Personal,Green - Yellow,"Personal care services are permitted, including those that require the removal of face covering."
+Personal,Orange - Grey,"Personal care services are permitted, excluding those that require the removal of face covering."
+Pets,All,"There are no restrictions on pet health services, groomers, trainers, or shelters."
+Shopping,Green - Orange,"In person retail shopping is permitted, including at shopping malls, with no capacity limits."
+Shopping,Red,Grocery stores and pharmacies are limited to 75% capacity. All other retail is limited to 50% capacity.
+Shopping,Grey,Grocery stores and pharmacies are limited to 50% capacity. All other retail is limited to 25% capacity.

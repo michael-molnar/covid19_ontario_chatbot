@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Covid-19 Chatbot</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+*   {
+        box-sizing: border-box;
+    }
+body { 
+  max-width:95%;
+  height:80%;
+  font-family: 'Helvetica';
+  background-image: url('static/images/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing:1.4px;
+}
+img.resize {
+    max-width: 90%;
+    max-height: 90%;
+}
+.column {
+    float: left;
+    padding: 10px;
+}
+.left {
+    width: 50%;
+}
+.middle {
+    width: 25%;
+}
+.right {
+    width: 25%;
+}
+.form-control {
+    width: 80%;
+    display: inline;
+}
+</style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="column left">
+        <h1>Ontario Covid-19 Chatbot</h1>
+        <form>
+        <div id="chatbox">
+            <p class="botText"><span><h3>Hi! Ask me questions about the Covid-19 restrictions in Ontario. I know all the rules for dining, 
+                gatherings, shopping, entertainment, personal servics, and animal services.<h3></span></p>
+        </div>
+        <div id="userInput" class="row">
+                <input id="text" type="text" name="msg" placeholder="Question" class="form-control">
+                <button type="submit" id="send" class="btn btn-warning">Send</button>
+        </div>
+        </form>
+        </div>
+             <div class="column middle"> 
+            <h2>Locate Your Region:</h2>
+            <img class="resize" src = "static/images/regions.png">
+        </div>
+        <div class="column right">
+            <h2>NOTICE:</h2>
+            <p>*************************************************</p>
+            <p>*************************************************</p>
+            <h3><p>As of April 8th, 2021 Ontario is under a province-wide stay at home order.</p>
+            <p>Stay home except for essential reasons.</p>
+            <p> Click on the image below for the latest Covid-19 rules and regulations.</p></h3>
+            <a href="https://covid-19.ontario.ca/"><img class="resize" src="static/images/colours.jpg" alt="Covid-19 Ontario"></a> 
+        </div>
+   
+
+    </div>
+
+<script>
+    $(document).ready(function() {
+        $("form").on("submit", function(event) {
+            var rawText = $("#text").val();
+            var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+            $("#text").val("");
+            $("#chatbox").append(userHtml);
+            document.getElementById("userInput").scrollIntoView({
+                block: "start",
+                behavior: "smooth",
+            });
+            $.ajax({
+                data: {
+                    msg: rawText,
+                },
+                type: "POST",
+                url: "/get",
+            }).done(function(data) {
+                var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                $("#chatbox").append($.parseHTML(botHtml));
+                document.getElementById("userInput").scrollIntoView({
+                    block: "start",
+                    behavior: "smooth",
+                });
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+</body>
+
+</html>
